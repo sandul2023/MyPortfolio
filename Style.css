@@ -1,0 +1,581 @@
+header{
+    /*background: white;*/
+    position: fixed;
+    width: 100%;
+    top: 0;
+    height: 65px;
+    z-index: 20;
+    font-family: 'Poppins', sans-serif;
+    font-size: 19px;
+
+}
+
+header > nav {
+    position: absolute;
+    right: 50px;
+    top: -8px;
+    color: black;
+}
+
+header > div{
+    padding: -20px;
+    padding-left: 100px;
+    font-size: 25px;
+    color: black;
+}
+
+header > nav > ul > li {
+    display: inline-block;
+    cursor: pointer;
+    padding: 10px;
+    font-family: 'Poppins', sans-serif;
+    color: black /*rgb(255, 255, 255)*/;
+    font-size: 19px;
+}
+
+header > nav >ul > li > a {
+    color: black;
+    text-decoration: none;
+}
+
+header > nav > ul > li > a:hover{
+    color: #19D0D0;
+}
+
+header > nav > ul > li > a::after{
+    content: '';
+    display: block;
+    width: 0;
+    height: 5px;
+    background-color: #19D0D0;
+    transition: width 0.2s;
+}
+
+header > nav > ul > li > a:hover::after{
+    width: 100%;
+    transition: width 0.2s;
+}
+
+
+/*----------View port Styles--------*/
+
+main{
+    position : relative;
+    margin-top: -20px;
+    /*height: 1000px;*/
+    width: 100%;
+    background-image: url("Assets/img/Desktop - 2.png");
+    background-size: cover;
+}
+
+
+/*----------Home Styles--------*/
+
+#home > aside {
+    position: absolute;
+    padding-left:200px;
+    padding-top: 170px;
+    font-family: 'Poppins', sans-serif;
+}
+
+#home > section{
+    padding-top: 50px;
+    padding-left: 1000px;
+}
+
+#home > aside >h1{
+    font-size: 60px;
+    color: black;
+}
+
+#home > aside >h2{
+    font-size: 50px;
+    margin-bottom: 0px;
+    color: black;
+}
+
+#home > aside >h3{
+    font-size: 30px;
+    margin-top:0px ;
+    color: black;
+}
+
+#home > aside > button{
+    background-color: #19D0D0;
+    border: none;
+    color: white;
+    padding: 12px 82px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 16px;
+    font-size: 25px;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 80px 40px -2px;
+    margin-top:50px ;
+    cursor: pointer;
+    text-decoration: white;
+}
+
+#home > aside > button > a{
+    text-decoration: none;
+    color: white;
+}
+
+#home > aside > nav >i{
+    position: relative;
+    background-color: #19D0D0;
+    color:white;
+    width: 50px;
+    height: 50px;
+    font-size: 40px;
+    border-radius: 100%;
+    padding-top: 11px;
+    padding-left: 11px;
+    margin-left: 15px;
+    margin-right: 15px;
+    top: 120px;
+    cursor: pointer;
+}
+
+#home > aside > nav >i:nth-child(4){
+    font-size: 35px;
+}
+
+#home > aside > button:hover{
+    transform: scale(1.05);
+}
+
+#home > aside > nav >i:hover {
+    box-shadow: rgba(241, 228, 6, 0.2) 0px 7px 29px 0px;
+    transform: scale(1.05);
+}
+.anim{
+    opacity: 0;
+    transform: translateY(30px);
+    animation: moveup 0.9s linear forwards;
+}
+@keyframes moveup {
+    100% {
+        opacity: 1;
+        transform: translateY(0px);
+
+    }
+
+}
+
+/*----------about--------*/
+#about > h1{
+    text-align: center;
+    font-family: 'Roboto Thin', sans-serif;
+    margin-bottom: 0;
+    font-size: 50px;
+    margin-top:850px;
+    color: #19D0D0;
+}
+
+#about > div{
+    margin-top: 0;
+    margin-left: 700px;
+}
+
+#about >img{
+    padding-left: 0;
+    padding-top: 20px;
+    position: absolute;
+    width: 500px;
+    height: 550px;
+}
+
+#about > article{
+    position: relative;
+    padding-left:700px;
+    padding-top: 60px;
+    font-family: 'Roboto Thin', sans-serif;
+}
+
+#about > article > ul> h5{
+    font-size: 15px;
+    margin-bottom: 0.5rem;
+}
+#about > article > ul{
+    margin-top: 60px;
+}
+
+#about > article > h2 {
+    font-size: 50px;
+    margin-bottom: 0px;
+}
+
+#about > article > h3 {
+    font-size: 25px;
+    margin-top: 0px;
+}
+
+#about > article > p{
+    width :800px;
+    height :100px;
+    font-size: 25px;
+}
+
+/*----------education--------*/
+#education > h1{
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    margin-bottom: 0;
+    font-size: 50px;
+    margin-top: 350px;
+    color: #19D0D0;
+}
+
+#education>section>img{
+    width: 1000px;
+    height: 600px;
+    position: relative;
+    padding-left: 260px;
+    padding-top: 70px;
+
+    /*margin-top: 0;*/
+    /*margin-bottom: 0;*/
+    /*margin-left: 0;*/
+    /*margin-right: 0;*/
+}
+
+/*----------Skill Styles--------*/
+
+#skills > h1{
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    /*margin-bottom: 0;*/
+    margin-top: 150px;
+    font-size:50px;
+
+    color: #19D0D0;
+}
+
+#skills > div{
+    margin-left: 800px;
+    width :3px;
+    height: 600px;
+    position: relative;
+}
+
+#skills >section {
+    display: flex;
+    align-items: center;
+    column-gap: 30px;
+    margin-top: 60px;
+    alignment: center;
+    margin-left: 50px;
+
+}
+
+#skills > section > aside {
+    height: 600px;
+    width: 650px;
+    position: relative;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 12px;
+    border-radius: 10%;
+    left: 70px;
+}
+
+#skills > section > aside > h2{
+    text-align: center;
+    font-family: 'Roboto Thin', sans-serif;
+    margin-bottom: 0;
+    font-size: 30px;
+    margin-top: 35px;
+
+}
+
+#skills > section > aside >section {
+    height: 600px;
+    width: 600px;
+    border-radius: 10%;
+
+}
+
+#technologies {
+    position: relative;
+    top: 60px;
+    left: 45px;
+    margin: auto;
+    display: grid;
+    /*border: 2px solid red;*/
+    grid-template-rows: repeat(2,1fr);
+    grid-template-columns: repeat(3,1fr);
+    gap: 10px;
+}
+
+#technologies > div:nth-child(6){
+    grid-row: 2/3;
+    grid-column: 2/3;
+    background-size: cover;
+    background-position: center;
+}
+
+#technologies > div > h3{
+    text-align: center;
+    font-family: 'Roboto Thin', sans-serif;
+    font-size: 15px;
+    padding-right: 50px;
+}
+
+#technologies > div:nth-child(1) >img{
+    padding-top: 20px;
+    width: 100px;
+    height: 100px;
+}
+
+#technologies > div > h3{
+    text-align: center;
+    font-family: 'Roboto Thin', sans-serif;
+    font-size: 20px;
+}
+
+#softwares {
+    position: relative;
+    top: 80px;
+    left: 60px;
+    margin: auto;
+    display: grid;
+    /*border: 2px solid red;*/
+    grid-template-rows: repeat(2,1fr);
+    grid-template-columns: repeat(4,1fr);
+    gap: 6px;
+}
+
+#softwares > div > h3{
+    text-align: center;
+    font-family: 'Roboto Thin', sans-serif;
+    font-size: 15px;
+}
+
+#skills > section > aside:hover{
+    transform: scale(1.05);
+}
+
+/*----------Projects Styles--------*/
+#projects > h1{
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    margin-bottom: 0;
+    font-size: 45px;
+    margin-top: 110px;
+    color: #19D0D0;
+}
+
+#projects > div{
+    margin-left: 720px;
+    width :3px;
+    height: 600px;
+    position: relative;
+}
+
+.projects >section> img {
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 50px;
+    width: 350px;
+    height: 350px;
+
+}
+
+.projects > section > section > h5 {
+    display: inline-block;
+    width: 400px;
+    font-size: 25px;
+}
+#projects > section{
+    margin-top: 90px;
+    margin-left: 400px;
+
+}
+.projects section img:hover{
+    transform: scale(1.05);
+}
+
+/*----------Contact Styles--------*/
+
+#contact > h1{
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    margin-bottom: 0;
+    font-size: 50px;
+    margin-top: 200px;
+    color: #19D0D0;
+}
+
+#contact > div{
+    margin-top: 0px;
+    margin-left: 700px;
+}
+
+#details {
+    background-color: white;
+    height: 550px;
+    width: 1300px;
+    position: relative;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 8px 24px;
+    border-radius: 50px;
+    margin-top: 70px;
+    margin-left: 80px;
+    z-index: 6;
+}
+
+#details > h3{
+    text-align: left;
+    font-family: 'Roboto Thin', sans-serif;
+    margin-bottom: 0;
+    font-size: 30px;
+    margin-top: 35px;
+    margin-left: 100px;
+    position: absolute;
+}
+
+#details > h3:nth-child(2){
+    text-align: left;
+    font-family: 'Roboto Thin', sans-serif;
+    margin-bottom: 0;
+    font-size: 30px;
+    margin-top: 35px;
+    left: 50%;
+}
+
+#details > section > address > div{
+    text-align: left;
+    font-family: 'Roboto Thin', sans-serif;
+    margin-bottom: 0;
+    position: relative;
+    top: 80px;
+    font-size: 15px;
+    margin-top: 35px;
+    margin-left: 150px;
+    padding-top: 20px;
+}
+
+
+#details > section > p:nth-child(1){
+}
+
+#details > section > div{
+    height: 300px;
+    width : 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    position: absolute;
+    top: 78px;
+    left: 80px;
+}
+
+#details >section > div > div{
+    height: 50px;
+    width: 50px;
+    background-color: #19D0D0;
+    border-radius: 100%;
+}
+
+#details >section > div > div >i{
+    font-size: 24px;
+    margin-left: 15px;
+    margin-top: 13px;
+    color: white;
+}
+
+#details >section > div > div:nth-child(1) >i{
+    font-size: 24px;
+    margin-left: 15px;
+    margin-top: 10px;
+    color: white;
+}
+
+#details > form{
+    position: absolute;
+    left : 35%;
+    top : 0px;
+    transform: scale(.6);
+}
+
+#fname{
+    padding:10px;
+    border:0;
+    font-family: 'Roboto Thin', sans-serif;
+    font-size: 24px;
+    border-radius: 20px;
+    background-color:#f1f2f6 ;
+}
+
+#lname{
+    padding:10px;
+    border:0;
+    font-family: 'Roboto Thin', sans-serif;
+    font-size: 24px;
+    border-radius: 20px;
+    background-color:#f1f2f6 ;
+    position: relative;
+    bottom:55px;
+    left: 500px;
+}
+
+#email{
+    padding:10px;
+    border:0;
+    font-family: 'Roboto Thin', sans-serif;
+    font-size: 24px;
+    border-radius: 20px;
+    background-color:#f1f2f6 ;
+    position: relative;
+    right: 324px;
+    top: 60px;
+}
+
+#phone{
+    padding:10px;
+    border:0;
+    font-family: 'Roboto Thin', sans-serif;
+    font-size: 24px;
+    border-radius: 20px;
+    background-color:#f1f2f6 ;
+    position: relative;
+    bottom: 55px;
+    left: 500px;
+    top: 8px;
+}
+
+#submitbtn{
+    background-color: #19D0D0;
+    border: none;
+    color: white;
+    padding: 12px 82px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 16px;
+    font-size: 27px;
+    margin-top:110px ;
+    font-family: 'Roboto Thin', sans-serif;
+}
+
+#textarea{
+    padding:10px;
+    border:0;
+    font-family: 'Roboto Thin', sans-serif;
+    font-size: 24px;
+    border-radius: 20px;
+    background-color:#f1f2f6 ;
+    position: relative;
+    top: 70px;
+}
+
+#submitbtn:hover{
+    transform: scale(1.05);
+}
+
+footer{
+    background-color: gray;
+    position: absolute;
+    border: 1px solid black;
+    width: 100%;
+    /*top: 100%;  meka ayin karama footer eka hemawelema yatinma thiyenawa*/
+    text-align: center;
+}
