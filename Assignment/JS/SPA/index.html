@@ -52,7 +52,7 @@
 
                             <!-- Example single danger button -->
                             <div class="btn-group mx-2">
-                                <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" style="background: #000000;">
+                                <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" style="background: green;">
                                     ID
                                 </button>
                                 <ul class="dropdown-menu">
@@ -380,6 +380,46 @@
 </main>
 <script src="assets/js/jquery-3.7.0.min.js"></script>
 <script>
+    // $(document).ready(function () {
+    //     // Save Customer Button Click Event
+    //     $("#save-btn").click(function () {
+    //         // Get input field values
+    //         let id = $("#txtCustID").val();
+    //         let name = $("#txtCustName").val();
+    //         let address = $("#txtCustAddress").val();
+    //         let salary = $("#txtCustSalary").val();
+    //         // Create table row
+    //         let row = $("<tr>");
+    //         row.append($("<td>").text(id));
+    //         row.append($("<td>").text(name));
+    //         row.append($("<td>").text(address));
+    //         row.append($("<td>").text(salary));
+    //         // Append row to table body
+    //         $("#tblCustomer").append(row);
+    //         // Clear form inputs
+    //         $("#txtCustID").val("");
+    //         $("#txtCustName").val("");
+    //         $("#txtCustAddress").val("");
+    //         $("#txtCustSalary").val("");
+    //     });
+    //     // Table Row Click Event
+    //     $("#tblCustomer").on("click", "tr", function () {
+    //         // Remove the selected class from all rows
+    //         $("#tblCustomer tr").removeClass("selected");
+    //         // Add the selected class to the clicked row
+    //         $(this).addClass("selected");
+    //         // Load data from the selected row into the form inputs
+    //         let id = $(this).children().eq(0).text();
+    //         let name = $(this).children().eq(1).text();
+    //         let address = $(this).children().eq(2).text();
+    //         let salary = $(this).children().eq(3).text();
+    //         $("#txtCustID").val(id);
+    //         $("#txtCustName").val(name);
+    //         $("#txtCustAddress").val(address);
+    //         $("#txtCustSalary").val(salary);
+    //     });
+    // });
+
     $(document).ready(function () {
         // Save Customer Button Click Event
         $("#save-btn").click(function () {
@@ -409,16 +449,58 @@
             // Add the selected class to the clicked row
             $(this).addClass("selected");
             // Load data from the selected row into the form inputs
-            let id = $(this).children().eq(0).text();
-            let name = $(this).children().eq(1).text();
-            let address = $(this).children().eq(2).text();
-            let salary = $(this).children().eq(3).text();
+            let id = $(this).find("td:eq(0)").text();
+            let name = $(this).find("td:eq(1)").text();
+            let address = $(this).find("td:eq(2)").text();
+            let salary = $(this).find("td:eq(3)").text();
             $("#txtCustID").val(id);
             $("#txtCustName").val(name);
             $("#txtCustAddress").val(address);
             $("#txtCustSalary").val(salary);
         });
-    });
+        // Update Button Click Event
+        $("#updated-btn").click(function () {
+            // Get input field values
+            let id = $("#txtCustID").val();
+            let name = $("#txtCustName").val();
+            let address = $("#txtCustAddress").val();
+            let salary = $("#txtCustSalary").val();
+            // Find the row with the selected class
+            let selectedRow = $("#tblCustomer tr.selected");
+            // Update the data in the selected row
+            selectedRow.find("td:eq(0)").text(id);
+            selectedRow.find("td:eq(1)").text(name);
+            selectedRow.find("td:eq(2)").text(address);
+            selectedRow.find("td:eq(3)").text(salary);
+            // Clear form inputs
+            $("#txtCustID").val("");
+            $("#txtCustName").val("");
+            $("#txtCustAddress").val("");
+            $("#txtCustSalary").val("");
+            // Remove the selected class from the row
+            selectedRow.removeClass("selected");
+        });
+        // Delete Button Click Event
+        $("#delete-btn").click(function () {
+            // Find the row with the selected class
+            let selectedRow = $("#tblCustomer tr.selected");
+            // Remove the selected row
+            selectedRow.remove();
+            // Clear form inputs
+            $("#txtCustID").val("");
+            $("#txtCustName").val("");
+            $("#txtCustAddress").val("");
+            $("#txtCustSalary").val("");
+        });
+        function clearCustomerFields() {
+            $('#txtCustID').val("");
+            $('#txtCustName').val("");
+            $('#txtCustAddress').val("");
+            $('#txtCustSalary').val("");
+        }
+        $("#clear-btn").click(function(){
+            clearCustomerFields();
+        })
    //select the button and add an event to Item
     $("#savebtn").click(function () {
         //get typed values of input fields
@@ -454,6 +536,49 @@
         $("#txtItemName").val(name);
         $("#txtItemPrice").val(price);
         $("#txtQty").val(qty);
+    });
+        $("#updatedbtn").click(function () {
+            // Get input field values
+            let code = $("#txtItemCode").val();
+            let name = $("#txtItemName").val();
+            let price = $("#txtItemPrice").val();
+            let qty = $("#txtQty").val();
+            // Find the row with the selected class
+            let selectedRow = $("#tblItem tr.selected");
+            // Update the data in the selected row
+            selectedRow.find("td:eq(0)").text(code);
+            selectedRow.find("td:eq(1)").text(name);
+            selectedRow.find("td:eq(2)").text(price);
+            selectedRow.find("td:eq(3)").text(qty);
+            // Clear form inputs
+            $("#txtItemCode").val("");
+            $("#txtItemName").val("");
+            $("#txtItemPrice").val("");
+            $("#txtQty").val("");
+            // Remove the selected class from the row
+            selectedRow.removeClass("selected");
+        });
+        // Delete Button Click Event
+        $("#deletebtn").click(function () {
+            // Find the row with the selected class
+            let selectedRow = $("#tblItem tr.selected");
+            // Remove the selected row
+            selectedRow.remove();
+            // Clear form inputs
+            $("#txtItemCode").val("");
+            $("#txtItemName").val("");
+            $("#txtItemPrice").val("");
+            $("#txtQty").val("");
+        });
+        function clearItemFields() {
+            $('#txtItemCode').val("");
+            $('#txtItemName').val("");
+            $('#txtItemPrice').val("");
+            $('#txtQty').val("");
+        }
+        $("#clearbtn").click(function(){
+            clearItemFields();
+        })
     });
 </script>
 </body>
