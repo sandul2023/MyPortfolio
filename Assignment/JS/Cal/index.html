@@ -4,10 +4,8 @@
   <meta charset="UTF-8">
   <title>Calculator</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="assets/css/Style.css">
+  <link rel="stylesheet" href="assets/css/styles.css">
   <link rel="stylesheet" href="assets/css/bootstrap.css">
-
-
 </head>
 <body>
 <div class="container my-4">
@@ -37,20 +35,23 @@
   </div>
 </div>
 
-
-<!--jQuery for javaScript-->
+<!-- jQuery for JavaScript -->
 <script src="assets/js/jquery-3.6.1.min.js"></script>
 
 <script>
   let mainPanel = $('#totalField');
-  let calPanel = $('#inputField')
-  let buttons = [$('#btnAc'),$('#btnC'),$('#btnPcnt'),$('#btnDiv'),$('#btn7'),$('#btn8'),$('#btn9'),$('#btnMult'),
-    $('#btn4'),$('#btn5'),$('#btn6'),$('#btnMin'),$('#btn1'),$('#btn2'),$('#btn3'),$('#btnPlus'),$('#btn0'),$('#btnPoint'),$('#btnEqual')];
+  let calPanel = $('#inputField');
+  let buttons = [
+    $('#btnPlus'), $('#btnMin'), $('#btnMult'), $('#btnDiv'), $('#btn7'), $('#btn8'), $('#btn9'),
+    $('#btn4'), $('#btn5'), $('#btn6'), $('#btn1'), $('#btn2'), $('#btn3'), $('#btn0'), $('#btnPoint')
+  ];
+
   buttons.forEach(button => {
     button.click(() => {
-      calPanel.val(calPanel.val() + button.text())
-    })
+      calPanel.val(calPanel.val() + button.text());
+    });
   });
+
   function calc(stream) {
     // calculations method
     try {
@@ -59,21 +60,20 @@
       signs.shift();
       signs.pop();
     } catch (error) {
-      alert("invalid expression! try again : " + error)
-    }
-    finally {
+      alert("Invalid expression! Try again: " + error);
+    } finally {
       let total = signs.length;
       let numCount = 0;
       let signCount = 0;
-      let val = calcExtended(parseInt(num[numCount++]),signs[signCount++],parseInt(num[numCount++]));
-      while (signCount<total) {
-        val = calcExtended(val,signs[signCount++],parseInt(num[numCount++]));
+      let val = calcExtended(parseInt(num[numCount++]), signs[signCount++], parseInt(num[numCount++]));
+      while (signCount < total) {
+        val = calcExtended(val, signs[signCount++], parseInt(num[numCount++]));
       }
-      //calPanel.val(val);
       mainPanel.val(val);
     }
   }
-  function calcExtended(fnm,fnc,lnm) {
+
+  function calcExtended(fnm, fnc, lnm) {
     let finVal;
     switch (fnc) {
       case '+':
@@ -91,17 +91,30 @@
     }
     return finVal;
   }
-  $('#btnAc').click(() => {
-    $('#totalField').val('');
-    $('#inputField').val('');
-  } )
-  $('#btnC').click(() => {
-    $('#totalField').val('');
-    $('#inputField').val('');
-  } )
-  $('#btnEqual').click(() => {
+
+  // Clear the calculator fields
+  $('#btnC').click(function() {
+    calPanel.val('');
+    mainPanel.val('');
+  });
+
+  // Calculate the result
+  $('#btnEqual').click(function() {
     calc(calPanel.val());
-  } )
+  });
+
+  // Handle keyboard input
+  $(document).keydown(function(event) {
+    let key = event.key;
+    let button = buttons.find(btn => btn.text() === key);
+    if (button) {
+      button.click();
+    }else if (key === 'Back Space') {
+      $('#btnClear').click();
+    } else if (key === 'Enter') {
+      $('#btnEqual').click();
+    }
+  });
 </script>
 </body>
 </html>

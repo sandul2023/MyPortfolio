@@ -409,43 +409,51 @@
             // Add the selected class to the clicked row
             $(this).addClass("selected");
             // Load data from the selected row into the form inputs
-            let id = $(this).find("td:eq(0)").text();
-            let name = $(this).find("td:eq(1)").text();
-            let address = $(this).find("td:eq(2)").text();
-            let salary = $(this).find("td:eq(3)").text();
+            let id = $(this).children().eq(0).text();
+            let name = $(this).children().eq(1).text();
+            let address = $(this).children().eq(2).text();
+            let salary = $(this).children().eq(3).text();
             $("#txtCustID").val(id);
             $("#txtCustName").val(name);
             $("#txtCustAddress").val(address);
             $("#txtCustSalary").val(salary);
         });
     });
-    //select the button and add an event to Item
+   //select the button and add an event to Item
     $("#savebtn").click(function () {
         //get typed values of input fields
         let code = $("#txtItemCode").val();
         let name = $("#txtItemName").val();
         let price = $("#txtItemPrice").val();
         let qty = $("#txtQty").val();
-        //let's print it
-        console.log(code, name, price, qty);
-        //catch the table body
-        let tBody = $("#tblItem");
-        // let's see how we should insert a table row using html format
-        //ok then, let's create the above row
-        let tr = $("<tr>");
-        //let's create another four columns
-        let col1 = $("<td>").text(code);
-        let col2 = $("<td>").text(name);
-        let col3 = $("<td>").text(price);
-        let col4 = $("<td>").text(qty);
-        //set 4 columns to the previously created row
-        tr.append(col1);
-        tr.append(col2);
-        tr.append(col3);
-        tr.append(col4);
-        //set the row to the table body
-        tBody.append(tr);
-        //Work done;
+        let row = $("<tr>");
+        row.append($("<td>").text(code));
+        row.append($("<td>").text(name));
+        row.append($("<td>").text(price));
+        row.append($("<td>").text(qty));
+        // Append row to table body
+        $("#tblItem").append(row);
+        // Clear form inputs
+        $("#txtItemCode").val("");
+        $("#txtItemName").val("");
+        $("#txtItemPrice").val("");
+        $("#txtQty").val("");
+    });
+    // Table Row Click Event
+    $("#tblItem").on("click", "tr", function () {
+        // Remove the selected class from all rows
+        $("#tblItem tr").removeClass("selected");
+        // Add the selected class to the clicked row
+        $(this).addClass("selected");
+        // Load data from the selected row into the form inputs
+        let code = $(this).children().eq(0).text();
+        let name = $(this).children().eq(1).text();
+        let price = $(this).children().eq(2).text();
+        let qty = $(this).children().eq(3).text();
+        $("#txtItemCode").val(code);
+        $("#txtItemName").val(name);
+        $("#txtItemPrice").val(price);
+        $("#txtQty").val(qty);
     });
 </script>
 </body>
