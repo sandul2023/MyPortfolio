@@ -1,31 +1,17 @@
-var colorQue={
-    colors:[
-        {col:'red'},
-        {col:'blue'},
-        {col:'yellow'},
-        {col:'lightgreen'},
-        {col:'purple'},
-        {col:'black'}
-    ],
-    nextColor:function (){
-        var lastColor=this.colors.pop();
-        this.colors.unshift(lastColor);
+let result = document.getElementById("result");
+
+function appendValue(value) {
+    result.value += value;
+}
+
+function calculate() {
+    try {
+        result.value = eval(result.value);
+    } catch (error) {
+        result.value = "Error";
     }
 }
-renderQue();
-function renderQue(){
-    $(`#container`).empty();
-    for (let i = 0; i < colorQue.colors.length; i++) {
-        if (i==0){
-            $(`#up`).css("background-color", colorQue.colors[0].col)
-        }
-        else if (i==(colorQue.colors.length-1)){
-            $(`#down`).css("background-color", colorQue.colors[colorQue.colors.length-1].col)
-        }
-        else {
-            $(`#container`).append(`<div style="background-color: ${colorQue.colors[i].col}"></div>`)
-        }
-    }
-    colorQue.nextColor();
+
+function clearResult() {
+    result.value = "";
 }
-setInterval(renderQue,200);

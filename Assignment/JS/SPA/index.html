@@ -7,12 +7,13 @@
     <script src="../InMemory_POS/assets/js/bootstrap.js"></script>
 
 
+
 </head>
 <body class="container-fluid">
 <main id="Home">
     <!--Header-->
     <header id="headerSection">
-        <nav class="navbar navbar-expand-lg"style="background: #065606;">
+        <nav class="navbar navbar-expand-lg"style="background: #5cd9ff;">
             <div class="container-fluid">
                 <a class="navbar-brand fw-bold text-danger" href="#">
                     <img src="assets/img/cart%20logo.png" alt="Bootstrap" width="30" height="24"> POS System
@@ -51,7 +52,7 @@
 
                             <!-- Example single danger button -->
                             <div class="btn-group mx-2">
-                                <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" style="background: #058105;">
+                                <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" style="background: #000000;">
                                     ID
                                 </button>
                                 <ul class="dropdown-menu">
@@ -97,19 +98,19 @@
                 <form id="item-form px-2" >
                     <div class="m-3">
                         <label for="txtCustID" class="form-label">Customer ID</label>
-                        <input type="text" class="form-control " placeholder="C001" id="txtCustID">
+                        <input type="text" class="form-control " placeholder="Ex:- C0001" id="txtCustID">
                     </div>
                     <div class="m-3">
                         <label for="txtCustName" class="form-label">Customer Name</label>
-                        <input type="text" class="form-control" placeholder="Nethmi" id="txtCustName" >
+                        <input type="text" class="form-control" placeholder="Ex:- Tharin" id="txtCustName" >
                     </div>
                     <div class="m-3">
                         <label for="txtCustAddress" class="form-label">Customer address</label>
-                        <input type="text" class="form-control" placeholder="Galle" id="txtCustAddress" >
+                        <input type="text" class="form-control" placeholder="Ex:- Hikkaduwa" id="txtCustAddress" >
                     </div>
                     <div class="m-3">
                         <label for="txtCustSalary" class="form-label">Customer Salary</label>
-                        <input type="text" class="form-control" placeholder="35000.00" id="txtCustSalary" >
+                        <input type="text" class="form-control" placeholder="Ex:- 35000.00" id="txtCustSalary" >
                     </div>
 
                     <div class="m-3 justify-content-center">
@@ -369,32 +370,83 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <!--          <tr>-->
-                    <!--            <td>I-001</td>-->
-                    <!--            <td>Rice 2kg</td>-->
-                    <!--            <td>300.00</td>-->
-                    <!--            <td>3</td>-->
-                    <!--            <td>900.00</td>-->
-                    <!--          </tr>-->
-                    <!--          <tr>-->
-                    <!--            <td>I-002</td>-->
-                    <!--            <td>Soap</td>-->
-                    <!--            <td>250.00</td>-->
-                    <!--            <td>4</td>-->
-                    <!--            <td>1000.00</td>-->
-                    <!--          </tr>-->
-                    <!--          <tr>-->
-                    <!--            <td>I-003</td>-->
-                    <!--            <td>Biscuits</td>-->
-                    <!--            <td>100.00</td>-->
-                    <!--            <td>12</td>-->
-                    <!--            <td>1200.00</td>-->
-                    <!--          </tr>-->
+<!--
+-->
                     </tbody>
                 </table>
             </div>
         </section>
     </section>
 </main>
+<script src="assets/js/jquery-3.7.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // Save Customer Button Click Event
+        $("#save-btn").click(function () {
+            // Get input field values
+            let id = $("#txtCustID").val();
+            let name = $("#txtCustName").val();
+            let address = $("#txtCustAddress").val();
+            let salary = $("#txtCustSalary").val();
+            // Create table row
+            let row = $("<tr>");
+            row.append($("<td>").text(id));
+            row.append($("<td>").text(name));
+            row.append($("<td>").text(address));
+            row.append($("<td>").text(salary));
+            // Append row to table body
+            $("#tblCustomer").append(row);
+            // Clear form inputs
+            $("#txtCustID").val("");
+            $("#txtCustName").val("");
+            $("#txtCustAddress").val("");
+            $("#txtCustSalary").val("");
+        });
+        // Table Row Click Event
+        $("#tblCustomer").on("click", "tr", function () {
+            // Remove the selected class from all rows
+            $("#tblCustomer tr").removeClass("selected");
+            // Add the selected class to the clicked row
+            $(this).addClass("selected");
+            // Load data from the selected row into the form inputs
+            let id = $(this).find("td:eq(0)").text();
+            let name = $(this).find("td:eq(1)").text();
+            let address = $(this).find("td:eq(2)").text();
+            let salary = $(this).find("td:eq(3)").text();
+            $("#txtCustID").val(id);
+            $("#txtCustName").val(name);
+            $("#txtCustAddress").val(address);
+            $("#txtCustSalary").val(salary);
+        });
+    });
+    //select the button and add an event to Item
+    $("#savebtn").click(function () {
+        //get typed values of input fields
+        let code = $("#txtItemCode").val();
+        let name = $("#txtItemName").val();
+        let price = $("#txtItemPrice").val();
+        let qty = $("#txtQty").val();
+        //let's print it
+        console.log(code, name, price, qty);
+        //catch the table body
+        let tBody = $("#tblItem");
+        // let's see how we should insert a table row using html format
+        //ok then, let's create the above row
+        let tr = $("<tr>");
+        //let's create another four columns
+        let col1 = $("<td>").text(code);
+        let col2 = $("<td>").text(name);
+        let col3 = $("<td>").text(price);
+        let col4 = $("<td>").text(qty);
+        //set 4 columns to the previously created row
+        tr.append(col1);
+        tr.append(col2);
+        tr.append(col3);
+        tr.append(col4);
+        //set the row to the table body
+        tBody.append(tr);
+        //Work done;
+    });
+</script>
 </body>
 </html>
