@@ -501,7 +501,62 @@
         $("#clear-btn").click(function(){
             clearCustomerFields();
         })
-   //select the button and add an event to Item
+
+        //disable tab
+        $("#txtCustomerID,#txtCustomerName,#txtCustomerAddress,#txtCustomerSalary").keydown(function (e) {
+
+            if (e.key == "Enter") {
+                e.preventDefault();
+            }
+        });
+
+        $("#txtCustomerID").keydown(function (e) {
+            if (e.key == "Enter") {
+                $("#txtCustomerName").focus();
+            }
+        });
+
+        $("#txtCustomerName").keydown(function (e) {
+            if (e.key == "Enter") {
+                $("#txtCustomerAddress").focus();
+            }
+        });
+
+        $("#txtCustomerAddress").keydown(function (e) {
+            if (e.key == "Enter") {
+                $("#txtCustomerSalary").focus();
+            }
+        });
+
+        $("#txtCustomerSalary").keydown(function (e) {
+            if (e.key == "Enter") {
+                //save customer
+                saveCustomer();
+
+            }
+        });
+        $("#save-btn").click(function (e) {
+            if (e.key == "Enter") {
+                $("#save-btn").focus();
+            }
+        });
+        $("#txtCustID").keydown(function (e) {
+            if (e.key == "Enter") {
+                $("#txtCustName").focus();
+            }
+        });
+        $("#txtCustName").keydown(function (e) {
+            if (e.key == "Enter") {
+                $("#txtCustAddress").focus();
+            }
+        });
+        $("#txtCustAddress").keydown(function (e) {
+            if (e.key == "Enter") {
+                $("#txtCustSalary").focus();
+            }
+        });
+
+        //select the button and add an event to Item
     $("#savebtn").click(function () {
         //get typed values of input fields
         let code = $("#txtItemCode").val();
@@ -583,3 +638,5 @@
 </script>
 </body>
 </html>
+
+//let cus/^(C00-)[0-9]{3}$/;
