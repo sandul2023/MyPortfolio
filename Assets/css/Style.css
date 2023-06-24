@@ -2414,14 +2414,14 @@ footer{
     }
 
     #details > section > div > div > i {
-        font-size: 20px;
+        font-size: 24px;
         margin-left: 15px;
         margin-top: 13px;
         color: white;
     }
 
     #details > section > div > div:nth-child(1) > i {
-        font-size: 20px;
+        font-size: 24px;
         margin-left: 15px;
         margin-top: 10px;
         color: white;
@@ -2429,55 +2429,24 @@ footer{
 
     #details > form {
         position: absolute;
-        left: 30%;
-        top: 0px;
+        left: 40%;
+        top: 0;
         transform: scale(.6);
     }
 
-    #fname {
-        padding: 10px;
-        border: 0;
-        font-family: 'Roboto Thin', sans-serif;
-        font-size: 20px;
-        border-radius: 20px;
-        background-color: #f1f2f6;
+    .contact__input{
+        border: none;
+        padding: 0.8rem 1.25rem;
+        width: 640px;
+        border-radius:16px;
+        font-size: 27px;
+        margin-bottom: .5rem;
+        background-color:#f1f2f6 ;
     }
 
-    #lname {
-        padding: 10px;
-        border: 0;
-        font-family: 'Roboto Thin', sans-serif;
-        font-size: 20px;
-        border-radius: 20px;
-        background-color: #f1f2f6;
-        position: relative;
-        bottom: 55px;
-        left: 373px;
-    }
-
-    #email {
-        padding: 10px;
-        border: 0;
-        font-family: 'Roboto Thin', sans-serif;
-        font-size: 20px;
-        border-radius: 20px;
-        background-color: #f1f2f6;
-        position: relative;
-        right: 275px;
-        top: 60px;
-    }
-
-    #phone {
-        padding: 10px;
-        border: 0;
-        font-family: 'Roboto Thin', sans-serif;
-        font-size: 20px;
-        border-radius: 20px;
-        background-color: #f1f2f6;
-        position: relative;
-        bottom: 55px;
-        left: 373px;
-        top: 8px;
+    .textarea{
+        height: 200px;
+        resize: none;
     }
 
     #submitbtn {
@@ -2493,35 +2462,6 @@ footer{
         margin-top: 110px;
         font-family: 'Roboto Thin', sans-serif;
     }
-
-    #textarea {
-        padding: 10px;
-        border: 0;
-        font-family: 'Roboto Thin', sans-serif;
-        font-size: 20px;
-        border-radius: 20px;
-        background-color: #f1f2f6;
-        position: relative;
-        top: 70px;
-    }
-
-    .bubble img {
-        width: 135px;
-        animation: bubble 6s linear infinite;
-    }
-
-    .bubble {
-        width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: space-around;
-        position: absolute;
-        bottom: 0;
-        /*left: 550px;*/
-        top: 700px;
-    }
-
-
 
     /*----------footer Styles--------*/
     footer {

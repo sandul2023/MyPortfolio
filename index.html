@@ -13,11 +13,13 @@
     <link href="Assets/fonts/css/all.min.css" rel="stylesheet">
     <meta charset="UTF-8">
     <!--    <base href="localhost">-->
+    <link href="Home.jpg" rel="icon">
     <meta name="keywords" content="IJSE, GDSE, Sri Lanka, CMJD, RWAD">
     <meta name="description" content="This is for testing my web">
     <meta name="author" content="Tharin Sandul">
     <meta name="owner" content="Tharin Sandul">
     <meta name="theme-color" content="white">
+    <link rel="stylesheet" href="Assets/css/Responsive.css">
 
 </head>
 
@@ -55,7 +57,7 @@
     <section class="about" id="about">
         <h1> ABOUT </h1>
 
-        <img src="Assets/img/Frame%203%201.jpg" width="200px" height="200px">
+        <img src="Assets/img/Frame%203%20.png" width="200px" height="200px">
 
         <article>
             <p>Hello! I'm Tharin Sandul. Full Stack Developer with over 1 year of experience. Having an in-depth knowledge including advanced HTML, CSS, JavaScript, Java, My SQL. Strong background in management and leadership.</p>
@@ -200,15 +202,28 @@
 
             </section>
 
-            <form>
-                <input type="text" id="fname" name="fname" value=" First Name"><br>
-                <input type="text" id="lname" name="lname" value=" Last Name">
-                <input type="text" id="email" name="email" value=" Email">
-                <input type="text" id="phone" name="phone" value=" Phone">
+            <form action="" class="contact__form" id="contact-form">
+                <div class="contact__form-input">
+                    <input type="text" name="name" placeholder="Your Name " class="contact__input"
+                           id="contact-name">
+                </div>
 
-                <textarea id="textarea" rows = "6" cols = "53" name = "description"> Your Message</textarea>
+                <div class="contact__form-input">
+                    <input type="email" name="email" placeholder="Your Email" class="contact__input"
+                           id="contact-email">
+                </div>
 
-                <input id="submitbtn" type = "submit" value = "Send" />
+                <div class="contact__form-input">
+                    <input type="text" name="subject" placeholder="Phone Number" class="contact__input"
+                           id="contact-subject">
+                </div>
+                <!--                <textarea id="textarea" rows = "6" cols = "53" name = "description"> Your Message</textarea>-->
+                <div class="contact__from-input">
+                            <textarea name="message" id="contact-message" class="contact__input textarea "
+                                      placeholder="Your Message"></textarea>
+                </div>
+                <input id="submitbtn" type = "submit" value = "Submit Now">
+
             </form>
         </section>
 
